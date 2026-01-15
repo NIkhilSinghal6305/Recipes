@@ -34,9 +34,17 @@ const SingleRecipes = () => {
   const updatehandler = (updatedRecipe) => {
     const index = data.findIndex((recipe) => recipe.id == param.id);
     const copydata = [...data];
-    copydata[index] = { ...data[index], ...updatedRecipe };
+    const newRecipe = { ...data[index], ...updatedRecipe };
+    copydata[index] = newRecipe;
     setdata(copydata);
     localStorage.setItem("recipes", JSON.stringify(copydata));
+
+    const updatedFav = favorite.map((fav) =>
+    fav.id === param.id ? newRecipe : fav
+  );
+
+  setFavorite(updatedFav);
+  localStorage.setItem("fav", JSON.stringify(updatedFav))
     toast.success("Recipe Updated");
   };
 

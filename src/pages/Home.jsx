@@ -70,6 +70,8 @@ const Home = () => {
     }
   };
 
+  const NumOfrecipe = JSON.parse(localStorage.getItem("recipes")).length;
+  const NumOfFav = JSON.parse(localStorage.getItem("fav")).length;
   return (
     <div className="space-y-16">
       {/* Hero Section */}
@@ -94,7 +96,7 @@ const Home = () => {
               placeholder="Search for a specific recipe by name..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              onKeyPress={handleKeyPress}
+              onClick={handleKeyPress}
               className="w-full px-6 py-4 pl-14 bg-gray-700 border border-gray-600 rounded-full text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
             />
             <Search className="absolute left-5 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
@@ -109,11 +111,11 @@ const Home = () => {
           {/* Quick Stats */}
           <div className="flex justify-center gap-12 pt-4">
             <div className="text-center">
-              <div className="text-3xl font-light text-orange-400">{data.length}</div>
+              <div className="text-3xl font-light text-orange-400">{NumOfrecipe}</div>
               <div className="text-sm text-gray-400">Recipes</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-light text-pink-400">{favorites.length}</div>
+              <div className="text-3xl font-light text-pink-400">{NumOfFav}</div>
               <div className="text-sm text-gray-400">Favorites</div>
             </div>
             <div className="text-center">
