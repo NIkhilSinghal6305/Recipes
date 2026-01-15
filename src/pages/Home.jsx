@@ -70,8 +70,8 @@ const Home = () => {
     }
   };
 
-  const NumOfrecipe = JSON.parse(localStorage.getItem("recipes")).length;
-  const NumOfFav = JSON.parse(localStorage.getItem("fav")).length;
+  const NumOfrecipe = JSON.parse(localStorage.getItem("recipes"))?.length;
+  const NumOfFav = JSON.parse(localStorage.getItem("fav"))?.length;
   return (
     <div className="space-y-16">
       {/* Hero Section */}
@@ -111,11 +111,11 @@ const Home = () => {
           {/* Quick Stats */}
           <div className="flex justify-center gap-12 pt-4">
             <div className="text-center">
-              <div className="text-3xl font-light text-orange-400">{NumOfrecipe}</div>
+              <div className="text-3xl font-light text-orange-400">{(NumOfrecipe == undefined)? 0 : NumOfrecipe}</div>
               <div className="text-sm text-gray-400">Recipes</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-light text-pink-400">{NumOfFav}</div>
+              <div className="text-3xl font-light text-pink-400">{(NumOfFav == undefined)? 0 : NumOfFav}</div>
               <div className="text-sm text-gray-400">Favorites</div>
             </div>
             <div className="text-center">
