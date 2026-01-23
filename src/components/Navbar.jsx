@@ -32,7 +32,7 @@ const Navbar = () => {
         ${show ? "translate-y-0" : "-translate-y-full"}
       `}
     >
-      <NavLink className={(e) => e.isActive ? "text-pink-600" : ""} to="/">Home</NavLink>
+      <NavLink className={ (e) => e.isActive ? "text-pink-600" : ""} to="/">Home</NavLink>
       <NavLink className={(e) => e.isActive ? "text-pink-600" : ""} to="/about">About</NavLink>
       <NavLink className={(e) => e.isActive ? "text-pink-600" : ""} to="/recipes">Recipes</NavLink>
       <NavLink className={(e) => e.isActive ? "text-pink-600" : ""} to="/create-recipes">Create Recipes</NavLink>
